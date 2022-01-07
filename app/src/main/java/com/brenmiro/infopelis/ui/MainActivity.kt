@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             if (it != null){
                 //adapter.setData(it)
                 initRecyclerView(vm.moviesMLD.value!!)
-                binding.tvFilmsList.text = vm.moviesMLD.value!!.results[0].title
+                //binding.tvFilmsList.text = vm.moviesMLD.value!!.results[0].title
             }
         })
         vm.moviesException.observe(this, this::handleException)

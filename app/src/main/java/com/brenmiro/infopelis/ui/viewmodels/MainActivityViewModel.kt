@@ -31,6 +31,7 @@ class MainActivityViewModel  : ViewModel() {
     fun findPopularMovies(){
         viewModelScope.launch() {
             val call = getRetrofit().create(MoviesApi::class.java).getPopularMovies()
+
             val films = call.body() as Movies
                 if (call.isSuccessful) {
                     moviesMLD.value = films
