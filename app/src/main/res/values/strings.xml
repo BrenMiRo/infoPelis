@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">InfoPelis</string>
+    <string name="films_list">Lista de pelis</string>
+</resources>
