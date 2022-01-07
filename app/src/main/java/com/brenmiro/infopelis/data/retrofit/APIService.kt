@@ -1,16 +1,26 @@
 package com.brenmiro.infopelis.data.retrofit
 
+import com.brenmiro.infopelis.data.model.Movie
 import com.brenmiro.infopelis.data.model.Movies
+import com.google.gson.Gson
 import retrofit2.Response
-import retrofit2.http.GET
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
-interface APIService {
+class APIService {
+    private fun getApi(): MoviesApi{
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://api.themoviedb.org/3/")
+            .addConverterFactory(GsonConverterFactory.create(Gson()))
+            .build()
 
-    companion object {
-        const val key: String = "d8f108351b6ff2a575af2182e68ded1f"
+        return retrofit.create(MoviesApi::class.java)
     }
 
-    @GET("discover/movie?sort_by=popularity.desc&api_key=$key")
-    suspend fun getPopularMovies (): Response<Movies>
+    suspend fun getPopularMovies(): Response<Movies> {
+        return getApi().getPopularMovies()
+    }
+
+
 
 }

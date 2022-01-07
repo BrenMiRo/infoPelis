@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.brenmiro.infopelis.data.model.Movie
+import com.brenmiro.infopelis.data.model.Movies
 import com.brenmiro.infopelis.databinding.ItemMovieBinding
 import com.squareup.picasso.Picasso
 
-class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+class MovieAdapter(private var movies: Movies) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
     class ViewHolder (private val binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
 
         companion object {
@@ -27,10 +28,15 @@ class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<Movie
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(movies[position])
+        holder.bind(movies.results[position])
     }
 
     override fun getItemCount(): Int {
-        return movies.size
+        return movies.results.size
+    }
+
+    fun setData(it: Movies) {
+        this.movies = it
+        this.notifyDataSetChanged()
     }
 }

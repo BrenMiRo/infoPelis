@@ -16,7 +16,6 @@ data class Movie (
         @SerializedName("vote_average") var voteAverage: Double,
         @SerializedName("vote_count") var voteCount: Int
         )
-
 data class Movies (
         var results: List<Movie>
-        )
+)
