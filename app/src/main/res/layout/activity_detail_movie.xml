@@ -30,6 +30,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ImageContrastCheck"
                 tools:src="@tools:sample/avatars" />
 
             <TextView
@@ -102,7 +103,17 @@
                         android:layout_marginTop="4dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="4dp"
-                        tools:text="GENERO: Comedia, Acción, Drama" />
+                        tools:text="GÉNERO: Comedia, Acción, Drama" />
+
+                    <TextView
+                        android:id="@+id/tvVoteAverage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="PUNTUACIÓN: 8.7/10" />
 
                 </LinearLayout>
             </LinearLayout>
