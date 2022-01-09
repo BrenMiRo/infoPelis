@@ -39,12 +39,7 @@ class MovieAdapter(private var movies: Movies, private val listener: IMovieAdapt
         return movies.results.size
     }
 
-//    fun setData(it: Movies) {
-//        this.movies = it
-//        this.notifyDataSetChanged()
-//    }
-
 }
 interface IMovieAdapter {
-    fun onItemClicked(id: String)
+    fun onItemClicked(id: Int)
 }

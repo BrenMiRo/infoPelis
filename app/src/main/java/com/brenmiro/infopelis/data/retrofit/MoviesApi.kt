@@ -16,6 +16,6 @@ interface MoviesApi {
     suspend fun getPopularMovies(): Response<Movies>
 
     @GET("movie/{itemId}?api_key=${key}&language=es")
-    suspend fun getMovieById(@Path("itemId") id: String): Response<MovieDetail>
+    suspend fun getMovieById(@Path("itemId") id: Int): Response<MovieDetail>
 
 }
