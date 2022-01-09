@@ -1,6 +1,6 @@
 package com.brenmiro.infopelis.data.retrofit
 
-import com.brenmiro.infopelis.data.model.Movie
+import com.brenmiro.infopelis.data.model.MovieDetail
 import com.brenmiro.infopelis.data.model.Movies
 import com.google.gson.Gson
 import retrofit2.Response
@@ -20,7 +20,7 @@ class APIService {
     suspend fun getPopularMovies(): Response<Movies> {
         return getApi().getPopularMovies()
     }
-    suspend fun getMovieById(id:String): Response<Movie>{
+    suspend fun getMovieById(id:String): Response<MovieDetail>{
         return getApi().getMovieById(id)
     }
 

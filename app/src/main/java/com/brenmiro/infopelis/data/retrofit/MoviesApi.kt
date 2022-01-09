@@ -1,6 +1,6 @@
 package com.brenmiro.infopelis.data.retrofit
 
-import com.brenmiro.infopelis.data.model.Movie
+import com.brenmiro.infopelis.data.model.MovieDetail
 import com.brenmiro.infopelis.data.model.Movies
 import retrofit2.Response
 import retrofit2.http.GET
@@ -16,6 +16,6 @@ interface MoviesApi {
     suspend fun getPopularMovies(): Response<Movies>
 
     @GET("movie/{itemId}?api_key=${key}&language=es")
-    suspend fun getMovieById(@Path("itemId") id: String): Response<Movie>
+    suspend fun getMovieById(@Path("itemId") id: String): Response<MovieDetail>
 
 }

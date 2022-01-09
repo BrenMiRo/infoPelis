@@ -3,14 +3,9 @@ package com.brenmiro.infopelis.ui.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.brenmiro.infopelis.data.model.Movie
 import com.brenmiro.infopelis.data.model.Movies
-import com.brenmiro.infopelis.data.repository.MoviesRepository
 import com.brenmiro.infopelis.data.repository.MoviesRepositoryImpl
-import com.brenmiro.infopelis.data.retrofit.APIService
 import com.brenmiro.infopelis.data.retrofit.MoviesApi
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

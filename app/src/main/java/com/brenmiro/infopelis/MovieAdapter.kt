@@ -3,7 +3,7 @@ package com.brenmiro.infopelis
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.brenmiro.infopelis.data.model.Movie
+import com.brenmiro.infopelis.data.model.MovieSimple
 import com.brenmiro.infopelis.data.model.Movies
 import com.brenmiro.infopelis.databinding.ItemMovieBinding
 import com.squareup.picasso.Picasso
@@ -16,7 +16,7 @@ class MovieAdapter(private var movies: Movies, private val listener: IMovieAdapt
             private const val IMAGE_BASE = "https://image.tmdb.org/t/p/w500/"
         }
 
-        fun bind(movie: Movie){
+        fun bind(movie: MovieSimple){
             binding.tvMovieTitle.text = movie.title
             Picasso.get().load(IMAGE_BASE + movie.posterPath).into(binding.ivMovie)
             itemView.setOnClickListener {

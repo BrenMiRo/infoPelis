@@ -3,8 +3,7 @@ package com.brenmiro.infopelis.ui.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.brenmiro.infopelis.data.model.Movie
-import com.brenmiro.infopelis.data.model.Movies
+import com.brenmiro.infopelis.data.model.MovieDetail
 import com.brenmiro.infopelis.data.retrofit.MoviesApi
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
@@ -12,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class DetailMovieActivityViewModel : ViewModel() {
 
-    val movieMLD = MutableLiveData<Movie>()
+    val movieMLD = MutableLiveData<MovieDetail>()
 
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
@@ -24,7 +23,7 @@ class DetailMovieActivityViewModel : ViewModel() {
     fun findMovie(id:String) {
         viewModelScope.launch() {
             val call = getRetrofit().create(MoviesApi::class.java).getMovieById(id)
-            val film = call.body() as Movie
+            val film = call.body() as MovieDetail
             if (call.isSuccessful) {
                 movieMLD.value = film
             }
