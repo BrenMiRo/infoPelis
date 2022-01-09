@@ -20,6 +20,9 @@ class APIService {
     suspend fun getPopularMovies(): Response<Movies> {
         return getApi().getPopularMovies()
     }
+    suspend fun getMovieById(id:String): Response<Movie>{
+        return getApi().getMovieById(id)
+    }
 
 
 

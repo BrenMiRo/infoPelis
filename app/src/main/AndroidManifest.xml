@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InfoPelis">
         <activity
+            android:name=".ui.DetailMovieActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
