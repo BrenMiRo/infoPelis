@@ -41,7 +41,8 @@ class MainActivity : AppCompatActivity(), IMovieAdapter {
             if (it != null){
                 initRecyclerView(vm.moviesMLD.value!!)
             } else {
-                Snackbar.make(binding.root, "No hay peliculas para mostrar",LENGTH_INDEFINITE).setAction("ok"){}.show()
+                Snackbar.make(binding.root, getString(R.string.there_are_not_movies),LENGTH_INDEFINITE).setAction(getString(
+                                    R.string.ok)){}.show()
             }
         })
         vm.moviesException.observe(this, this::handleException)
@@ -59,7 +60,7 @@ class MainActivity : AppCompatActivity(), IMovieAdapter {
                 else -> Toast.makeText(this, R.string.unknown_error.toString(), Toast.LENGTH_LONG).show()
             }
         if (exception is IOException)
-            Snackbar.make(binding.root, "Verifique su conexión a internet",LENGTH_INDEFINITE)
+            Snackbar.make(binding.root,  getString(R.string.without_internet),LENGTH_INDEFINITE)
                     .setAction("RETRY"){vm.findPopularMovies()}
                     .show()
     }

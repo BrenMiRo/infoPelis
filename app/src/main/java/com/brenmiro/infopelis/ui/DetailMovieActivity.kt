@@ -10,7 +10,6 @@ import com.brenmiro.infopelis.R
 import com.brenmiro.infopelis.data.model.Genre
 import com.brenmiro.infopelis.databinding.ActivityDetailMovieBinding
 import com.brenmiro.infopelis.ui.viewmodels.DetailMovieActivityViewModel
-import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_INDEFINITE
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
@@ -39,14 +38,14 @@ class DetailMovieActivity : AppCompatActivity() {
     private fun setObservers(id: Int?) {
         vm.movieMLD.observe(this,{
             if (it != null){
-                binding.tvTitle.text = vm.movieMLD.value!!.title
-                binding.tvOriginalTitle.text = "TITULO ORIGINAL: ${vm.movieMLD.value!!.originalTitle}"
-                binding.tvGenre.text = getGenresString(vm.movieMLD.value!!.genre)
-                binding.tvReleaseDate.text = "ESTRENO: ${getDate(vm.movieMLD.value!!.releaseDate)}"
-                binding.tvOverview.text = vm.movieMLD.value!!.overview
-                binding.tvVoteAverage.text = "PUNTUACIÓN: ${vm.movieMLD.value!!.voteAverage}/10"
                 showImage(binding.ivBackdrop,vm.movieMLD.value!!.backdropPath,vm.movieMLD.value!!.posterPath)
                 showImage(binding.ivPosterPath, vm.movieMLD.value!!.posterPath, vm.movieMLD.value!!.backdropPath)
+                binding.tvTitle.text = vm.movieMLD.value!!.title
+                binding.tvOriginalTitle.text = getString(R.string.original_title,vm.movieMLD.value!!.originalTitle)
+                binding.tvGenre.text = getGenresString(vm.movieMLD.value!!.genre)
+                binding.tvReleaseDate.text = getString(R.string.release,getDate(vm.movieMLD.value!!.releaseDate))
+                binding.tvOverview.text = vm.movieMLD.value!!.overview
+                binding.tvVoteAverage.text = getString(R.string.vote_average,vm.movieMLD.value!!.voteAverage.toString())
             }
         })
         vm.moviesException.observe(this, {
@@ -67,12 +66,13 @@ class DetailMovieActivity : AppCompatActivity() {
                 else -> Toast.makeText(this, R.string.unknown_error.toString(), Toast.LENGTH_LONG).show()
             }
         if (exception is IOException)
-            Snackbar.make(binding.root, "Verifique su conexión a internet", LENGTH_INDEFINITE)
+            Snackbar.make(binding.root, getString(R.string.without_internet), LENGTH_INDEFINITE)
                 .setAction("RETRY"){
                     if (id != null) vm.findMovie(id)
                 }
                 .show()
     }
+
 
     private fun showImage(imageView: ImageView, pathPrincipal: String?, pathAlternative: String?) {
         if (pathPrincipal != null){
@@ -95,10 +95,10 @@ class DetailMovieActivity : AppCompatActivity() {
     }
 
     private fun getGenresString(genre: List<Genre>): String {
-        var genresString = "GENERO: "
+        var genresString = getString(R.string.genre)
         for (pos in genre.indices) {
             genresString += if (pos == 0){
-                genre[pos].name
+                " ${genre[pos].name}"
             }else{
                 ", ${genre[pos].name}"
             }

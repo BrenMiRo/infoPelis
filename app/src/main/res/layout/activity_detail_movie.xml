@@ -113,7 +113,7 @@
                         android:layout_marginTop="4dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="4dp"
-                        android:text="PUNTUACIÓN: 8.7/10" />
+                        tools:text="PUNTUACIÓN: 8.7/10" />
 
                 </LinearLayout>
             </LinearLayout>
