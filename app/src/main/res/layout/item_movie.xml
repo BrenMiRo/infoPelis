@@ -9,7 +9,7 @@
     android:layout_marginTop="8dp"
     android:layout_marginEnd="16dp"
     android:layout_marginBottom="8dp"
-    android:background="@color/cardview_dark_background">
+    android:background="?attr/colorBackgroundFloating">
 
     <ImageView
         android:id="@+id/ivMovie"
@@ -19,6 +19,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck"
         tools:srcCompat="@tools:sample/avatars" />
 
 
@@ -28,8 +29,7 @@
         android:layout_height="109dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:maxLines="2"
-        android:textColor="@color/white"
+        android:textColor="?attr/actionMenuTextColor"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
